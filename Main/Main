@@ -1,0 +1,98 @@
+package Main;
+
+import java.util.Scanner;
+
+import Logica.metodos;
+
+public class Main {
+
+    public static void main(String[] args) {
+      
+        Scanner leer = new Scanner(System.in);
+        
+        String N[] = {
+            "Acevedo Campos Ariagna",
+            "Campos Casasanero Juan Pablo",
+            "Diaz de Jesus Mariana Dazzling",
+            "Diaz Rosas Alexis Efren",
+            "Eligio Ramos Moserrat",
+            "Flores Maldonado Liliana",
+            "Gutierrez Valle Samara",
+            "Juarez Ramos Alexis Manuel",
+            "Leyva Silva Rogelio Jesus",
+            "Martinez Rayo Irirs Madai",
+            "Melgoza Vazquez Lilia Sutsuy",
+            "Santamaria Vera Iris Itzel",
+            "Soto Carrion Luis Enrique",
+            "Tapia Sanchez Marco Antonio ",
+            "Tatacoya Julian ",
+        };
+        int NC[] = {
+            19680056,
+            19680113,
+            19680133,
+            19680136,
+            19680957,
+            17680144,
+            18680162,
+            19680958,
+            19680177,
+            19680165,
+            19680193,
+            19680227,
+            19680236,
+            18680754,
+            18680262,
+        };
+        
+        double calf[] = new double[N.length];
+        
+        for (int i = 0; i < calf.length; i++) {
+            do {
+                System.out.print("[" + (i + 1) + "] Numero de control: " + NC[i]
+                        + "\nAlumno: " + N[i] + "\nCalificacion: ");
+                calf[i] = leer.nextDouble();
+                
+                System.out.println("");
+                
+            } while (calf[i] <0 || calf[i] >100);
+        }
+        
+        metodos metodo = new metodos();
+        
+        int opc, opc2;
+        do {
+            opc2 = 1;
+            
+            System.out.println("*****************programa-calificaciones****************"
+                    + "\n¿Que desea hacer?"
+                    + "\n[1] Imprimir promedio general"
+                    + "\n[2] Imprimir promedio de los primeros 5 alumnos"
+                    + "\n[3] Imprimir promedio de los ultimos 5 alumnos"
+                    + "\n[4]salir");
+            opc = leer.nextInt();
+            switch (opc) {
+                case 1:
+                    System.out.println("Calificacion grupal: " + metodo.Promedio(calf));
+                    break;
+                case 2:
+                    metodo.Primeros5(N, NC,calf);
+                    break;
+                case 3:
+                    metodo.Ultimos5(N, NC, calf);
+                case 4:
+                    System.out.println("Saliendo");
+                    break;
+            }
+            
+            if (opc != 4) {
+                System.out.println("Para continuar o salir ingrese: [0]si/[1]no");
+                opc2 = leer.nextInt();
+            }
+            
+        } 
+        
+        while (opc2 != 1);
+        
+    }
+}
