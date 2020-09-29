@@ -1,0 +1,46 @@
+package Logica;
+
+public class metodos {
+
+    public double Promedio(double[] calificacion) {
+        
+    double a = 0;
+        
+        for (int i = 0; i < calificacion.length; i++){
+            a = a + calificacion[i];
+        }
+        
+        a=a / calificacion.length;
+        return a;
+    }
+
+    public void Primeros5(String[] N, int[] NC,double[]Calif) {
+        
+        double a = 0;
+        for (int i = 0; i < 5; i++) {
+        System.out.print("[" +(i+1)+"] Numero de control: " + NC[i]
+                    + "\nAlumno: "+ N[i] +"\nCalificacion: " + Calif[i]);
+        
+            a = a+Calif[i];
+            System.out.println("");
+        }
+        
+        a = a / 5;
+        System.out.println("Calificacion de los primeros 5: " + a);
+    }
+
+    public void Ultimos5(String[] N, int[] NC, double[] Calif) {
+        
+        double a = 0;
+        for (int i=Calif.length - 1; i > 10; i--) {
+        System.out.print("["+(i+1)+"] Numero de control: "+ NC[i]
+                    + "\nAlumno: "+ N[i]+"\nCalificacion: "+ Calif[i]);
+            a = a+Calif[i];
+            System.out.println("");
+        }
+        
+        a = a / 5;
+        System.out.println("Calificacion de los ultimos 5: " + a);   
+        
+    }
+}
